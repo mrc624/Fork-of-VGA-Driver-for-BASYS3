@@ -1,10 +1,18 @@
 `timescale 1ns / 1ps
-
+//////////////////////////////////////////////////////////////////////////////////
+// Reference Book: 
+// Chu, Pong P.
+// Wiley, 2008
+// "FPGA Prototyping by Verilog Examples: Xilinx Spartan-3 Version" 
+// 
+// Adapted for the Basys 3 by David J. Marion
+// Comments by David J. Marion
+//
 // FOR USE WITH AN FPGA THAT HAS 12 PINS FOR RGB VALUES, 4 PER COLOR
-
+//////////////////////////////////////////////////////////////////////////////////
 
 module vga_test(
-	input clk_100MHz,      // from FPGA
+	input clk_100MHz,      // from Basys 3
 	input reset,
 	input [11:0] sw,       // 12 bits for color
 	output hsync, 
@@ -13,7 +21,7 @@ module vga_test(
 );
 	
 	// Signal Declaration
-	reg [11:0] rgb_reg;    // Registar for displaying color on a screen
+	reg [11:0] rgb_reg;    // register for Basys 3 12-bit RGB DAC 
 	wire video_on;         // Same signal as in controller
 
     // Instantiate VGA Controller
